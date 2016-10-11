@@ -2,8 +2,8 @@ var urllib = require('url');
 
 var express = require('express');
 var slackin = require('slackin');
-// var slash = require('express-slash');
 
+var pkgNameUpper = require('./package').name.toUpperCase();
 var teams = require('./teams');
 
 function getTeamEnvVarName (team) {
@@ -11,12 +11,24 @@ function getTeamEnvVarName (team) {
     .trim()
     .replace(/\W+/g, '_')
     .toUpperCase();
-  return 'SLACKINVITER_TOKEN_' + teamSanitised;
+  return pkgNameUpper + '_TOKEN_' + teamSanitised;
+}
+
+function forceTrailingSlashRedirectMiddleware (req, res, next) {
+  var url = urllib.parse(req.url);
+
+  var pathname = url.pathname;
+  var qs = url.search || '';
+  var hasSlash = pathname.substr(-1) === '/';
+
+  if (pathname.substr(-1) === '/') {
+    next();
+  } else {
+    res.redirect(302, pathname + '/');
+  }
 }
 
 var app = express();
-
-// app.enable('strict routing');
 
 Object.keys(teams).forEach(function (teamName) {
   var team = teams[teamName];
@@ -39,7 +51,6 @@ Object.keys(teams).forEach(function (teamName) {
       teamChannels = team.channels;
     }
   }
-  console.log(teamChannels);
   var teamSilent = 'silent' in team ? team.silent : false;
   var teamCSS = 'css' in team ? team.css : '';
 
@@ -52,25 +63,8 @@ Object.keys(teams).forEach(function (teamName) {
     silent: teamSilent,
     css: teamCSS
   });
-  // teamApp.app.enable('strict routing');
 
-  // app.head(teamPathSlashless, forceTrailingSlashRedirectMiddleware);
-  // app.get(teamPathSlashless, forceTrailingSlashRedirectMiddleware);
   app.use(teamPath, teamApp.app);
 });
-
-function forceTrailingSlashRedirectMiddleware (req, res, next) {
-  var url = urllib.parse(req.url);
-
-  var pathname = url.pathname;
-  var qs = url.search || '';
-  var hasSlash = pathname.substr(-1) === '/';
-
-  if (pathname.substr(-1) === '/') {
-    next();
-  } else {
-    res.redirect(302, pathname + '/');
-  }
-}
 
 app.listen(process.env.SLACKINVITER_PORT || process.env.PORT || 3000);
