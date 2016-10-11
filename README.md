@@ -5,6 +5,21 @@ This contains the code to deploy an auto-invite and redirect service for multipl
 To add a team, add it to the [`teams.json` file](teams.json). To generate Slack tokens, read [these instructions for Slackin](https://github.com/rauchg/slackin#npm).
 
 
+## Local development
+
+To install the Node dependencies:
+
+```sh
+npm install
+```
+
+To start the dev server locally:
+
+```sh
+npm start
+```
+
+
 ## Deployment
 
 To deploy to [Heroku](https://www.heroku.com/):

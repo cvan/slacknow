@@ -7,7 +7,7 @@
     "slackin": "^0.13.0"
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run prod",
     "dev": "NODE_ENVIRONMENT='development' npm run server",
     "prod": "npm run server",
     "server": "node ./index",
