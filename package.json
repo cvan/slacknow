@@ -1,0 +1,23 @@
+{
+  "name": "slackinviter",
+  "description": "Easy Slack auto-inviter service (using slackin) for multiple teams.",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "slackin": "^0.13.0"
+  },
+  "devDependencies": {
+    "express-slash": "^2.0.1",
+    "slackin": "^0.13.0"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENVIRONMENT='development' npm run server",
+    "prod": "NODE_ENVIRONMENT='production' npm run server",
+    "server": "node ./index",
+    "deploy": "now"
+  },
+  "authors": [
+    "Chris Van Wiemeersch <hearcomestreble@gmail.com>"
+  ]
+}
