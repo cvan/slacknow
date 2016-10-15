@@ -1,3 +1,6 @@
 {
-  "w3c-vr": {}
+  "aframe": {},
+  "mozvr": {},
+  "w3c-vr": {},
+  "webvr": {}
 }
