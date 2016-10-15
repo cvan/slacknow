@@ -1,4 +1,4 @@
-# Slack Now
+# SlackNow
 
 This contains the code to deploy an auto-invite and redirect service for multiple [Slack](https://slack.com/) teams. Uses the awesome [`slackin` project](https://github.com/rauchg/slackin).
 
