@@ -38,7 +38,6 @@ Object.keys(teams).forEach(function (teamName) {
   var teamEnvVarName = 'env_var_name' in team ? team.env_var_name :
     getTeamEnvVarName(teamOrg);
   var teamToken = process.env[teamEnvVarName];
-  console.log(teamToken)
   var teamInterval = 'interval' in team ? team.interval : 1000;
   var teamPath = '/' + teamOrg + '/';
   var teamPathSlashless = '/' + teamOrg + '/';
