@@ -12,6 +12,7 @@
     "prod": "npm run server",
     "server": "node ./index",
     "predeploy": "git remote set-url heroku https://git.heroku.com/slacknow.git",
+    "login": "heroku login",
     "deploy": "git push heroku master"
   },
   "authors": [
