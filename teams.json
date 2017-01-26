@@ -1,6 +1,12 @@
 {
-  "aframevr": {},
-  "mozvr": {},
+  "aframevr": {
+    "css": "https://aframe.io/css/slacknow.css"
+  },
+  "mozvr": {
+    "css": "https://mozvr.com/assets/css/slacknow.css"
+  },
   "w3c-vr": {},
-  "webvr": {}
+  "webvr": {
+    "css": "https://webvr.rocks/media/css/slacknow.css"
+  }
 }

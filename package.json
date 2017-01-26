@@ -3,6 +3,7 @@
   "description": "Easy Slack auto-inviter service (using slackin) for multiple teams.",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "slackin": "^0.13.0"
   },

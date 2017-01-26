@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var urllib = require('url');
 
 var express = require('express');
